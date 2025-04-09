@@ -1,19 +1,17 @@
 import React from 'react';
 import Sidebar from '../../components/sidebar';
+import { Outlet } from 'react-router-dom';
 
-const DefaultLayout = ({ children }) => {
+const DefaultLayout = () => {
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <Sidebar />
-      
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col overflow-hidden">
-        <main className="flex-1 overflow-x-hidden overflow-y-auto bg-gray-200 p-4">
-          {children}
-        </main>
-      </div>
-    </div>
+    <div className="flex h-screen w-screen bg-gray-100">
+  <Sidebar />
+  <div className="flex-1 overflow-hidden">
+    <main className="h-full overflow-y-auto bg-gray-200 p-4">
+      <Outlet />
+    </main>
+  </div>
+</div>
   );
 };
 

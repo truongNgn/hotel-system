@@ -1,59 +1,65 @@
 const RentModal = ({ room, onClose }) => {
-    return (
-      <div className="fixed inset-0 bg-black bg-opacity-30 flex justify-center items-center">
-        <div className="bg-white rounded-xl p-6 w-[500px] relative">
-          <div className="flex justify-between items-center mb-4">
-            <h2 className="font-bold text-xl text-blue-600">Thuê phòng</h2>
-            <button onClick={onClose} className="text-red-500 font-bold text-xl">×</button>
-          </div>
-  
-          <div className="grid grid-cols-2 gap-3 text-sm">
+  return (
+    <div className="fixed inset-0 bg-opacity-30 flex justify-center items-center">
+      <div className="bg-gray-100 rounded-xl w-[500px] relative overflow-hidden">
+        
+        {/* Header có màu blue */}
+        <div className="bg-blue-600 text-white flex justify-between items-center px-6 py-4">
+          <h2 className="font-bold text-xl">Thuê phòng</h2>
+          <button onClick={onClose} className="bg-black hover:bg-red-600 text-white rounded-full w-8 h-8 flex items-center justify-center">
+            ×
+          </button>
+        </div>
+
+        {/* Nội dung form */}
+        <div className="p-6 text-sm text-gray-700">
+          <div className="grid grid-cols-2 gap-3 font-bold">
             <label>
               Thuê phòng:
-              <input defaultValue={room.id} className="w-full border px-2 py-1 rounded" />
+              <input defaultValue={room.id} className="w-full border px-2 py-1 rounded text-black font-normal" />
             </label>
             <label>
               Giá:
-              <input className="w-full border px-2 py-1 rounded" />
+              <input className="w-full border px-2 py-1 rounded text-black font-normal" />
             </label>
             <label>
               Ngày vào:
-              <input type="date" className="w-full border px-2 py-1 rounded" />
+              <input type="date" className="w-full border px-2 py-1 rounded text-black font-normal" />
             </label>
             <label>
               Lúc:
-              <input type="time" className="w-full border px-2 py-1 rounded" />
+              <input type="time" className="w-full border px-2 py-1 rounded text-black font-normal" />
             </label>
             <label className="col-span-2">
               Tên khách hàng:
-              <input className="w-full border px-2 py-1 rounded" />
+              <input className="w-full border px-2 py-1 rounded text-black font-normal" />
             </label>
             <label className="col-span-2">
               Địa chỉ:
-              <input className="w-full border px-2 py-1 rounded" />
+              <input className="w-full border px-2 py-1 rounded text-black font-normal" />
             </label>
             <label>
               Số ngày định ở:
-              <input className="w-full border px-2 py-1 rounded" />
+              <input className="w-full border px-2 py-1 rounded text-black font-normal" />
             </label>
             <label>
               CMND/Passport:
-              <input className="w-full border px-2 py-1 rounded" />
+              <input className="w-full border px-2 py-1 rounded text-black font-normal" />
             </label>
             <label className="col-span-2">
               Ghi chú:
-              <textarea className="w-full border px-2 py-1 rounded" rows="3" />
+              <textarea className="w-full border px-2 py-1 rounded text-black font-normal" rows="3" />
             </label>
           </div>
-  
+
           <div className="flex justify-end gap-2 mt-4">
             <button onClick={onClose} className="bg-red-400 text-white px-4 py-1 rounded">Hủy</button>
             <button className="bg-green-500 text-white px-4 py-1 rounded">Thuê phòng</button>
           </div>
         </div>
       </div>
-    );
-  };
-  
-  export default RentModal;
-  
+    </div>
+  );
+};
+
+export default RentModal;

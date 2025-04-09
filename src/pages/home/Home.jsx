@@ -20,13 +20,13 @@ const Home = () => {
       {/* Bộ lọc */}
       <div className="bg-blue-500 p-4 rounded-xl flex gap-4 flex-wrap items-center text-white">
         <label>
-          Tầng <input type="text" className="ml-1 rounded px-2 text-black" />
+          Tầng <input type="text" className="ml-1 rounded px-2 text-black bg-white" />
         </label>
         <label>
-          Trạng thái phòng <input type="text" className="ml-1 rounded px-2 text-black" />
+          Trạng thái phòng <input type="text" className="ml-1 rounded px-2 text-black bg-white" />
         </label>
         <label>
-          Loại phòng <input type="text" className="ml-1 rounded px-2 text-black" />
+          Loại phòng <input type="text" className="ml-1 rounded px-2 text-black bg-white" />
         </label>
       </div>
 
