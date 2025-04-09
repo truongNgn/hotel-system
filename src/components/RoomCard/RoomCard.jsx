@@ -1,7 +1,7 @@
 const statusColors = {
-    "Còn trống": "bg-green-400",
-    "Đang sử dụng": "bg-red-400",
-    "Đang dọn dẹp": "bg-yellow-300",
+    "Còn trống": "bg-green-600",
+    "Đang sử dụng": "bg-red-600",
+    "Đang dọn dẹp": "bg-yellow-400",
   };
   
   const RoomCard = ({ room, onClick }) => {
