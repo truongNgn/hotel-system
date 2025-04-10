@@ -7,17 +7,18 @@ const RentModal = ({ room, onClose }) => {
   useEffect(() => {
     const fetchCustomer = async () => {
       try {
-        const res = await axios.get("/api/orders/customer-room");
-        const data = res.data;
-        const found = data.find(item => item.RoomNumber === room.number);
+        const res = await axios.get("/api/customer-and-room"); // Đường dẫn API để lấy thông tin khách hàng và phòng
+        const rows = Array.isArray(res.data) ? res.data : res.data.rows || [];
+  
+        const found = rows.find(item => item.RoomID === room.id || item.RoomNumber === room.number);
         if (found) {
-          setCustomerName(found.customerName); // hoặc found.FullName nếu chưa đổi alias
+          setCustomerName(found.customerName || found.FullName);
         }
       } catch (err) {
         console.error("Lỗi khi tải dữ liệu khách thuê:", err);
       }
     };
-
+  
     if (room.status === "Đang sử dụng") {
       fetchCustomer();
     }
