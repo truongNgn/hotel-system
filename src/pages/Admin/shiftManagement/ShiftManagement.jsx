@@ -58,14 +58,14 @@ const ShiftManagement = () => {
         </div>
         <div className="overflow-x-auto">
           <table className="table-auto w-full text-left">
-            <thead className="bg-blue-500 text-white">
+            <thead className="bg-blue-500 text-white ">
               <tr>
                 <th className="px-4 py-2">STT</th>
                 <th className="px-4 py-2">Mã nhân viên</th>
                 <th className="px-4 py-2">Tên</th>
               </tr>
             </thead>
-            <tbody className="bg-gray-200">
+            <tbody className="bg-white hover:bg-gray-300 transition text-black">
               {/* Dữ liệu mẫu */}
               <tr>
                 <td className="px-4 py-2">1</td>
@@ -94,7 +94,7 @@ const ShiftManagement = () => {
                 <th className="px-4 py-2">Lý do thay ca</th>
               </tr>
             </thead>
-            <tbody className="bg-gray-200">
+            <tbody className="bg-white hover:bg-gray-300 transition text-black">
               {/* Dữ liệu mẫu */}
               <tr>
                 <td className="px-4 py-2">1</td>

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import RoomCard from "../../components/RoomCard";
-import RentModal from "../../components/RentModal";
+import RoomCard from "../../../components/RoomCard";
+import RentModal from "../../../components/RentModal";
 
 const roomsData = [
   { id: "P001", name: "Phòng 001", status: "Còn trống" },

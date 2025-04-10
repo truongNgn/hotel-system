@@ -26,7 +26,7 @@ const Orders = () => {
           </thead>
           <tbody>
             {dummyOrders.map((order, index) => (
-              <tr key={order.id} className="bg-blue-100 hover:bg-blue-200 transition">
+              <tr key={order.id} className="bg-white hover:bg-gray-300 transition text-black">
                 <td className="p-3">{index + 1}</td>
                 <td className="p-3">{order.id}</td>
                 <td className="p-3">{order.customer}</td>

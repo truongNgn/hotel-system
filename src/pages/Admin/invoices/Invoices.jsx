@@ -58,7 +58,7 @@ const InvoicesPage = () => {
           </thead>
           <tbody>
             {dummyInvoices.map((invoice, index) => (
-              <tr key={invoice.id} className="bg-blue-100 hover:bg-blue-200 transition">
+              <tr key={invoice.id} className="bg-white hover:bg-gray-300 transition text-black">
                 <td className="p-3">{index + 1}</td>
                 <td className="p-3">{invoice.id}</td>
                 <td className="p-3">{invoice.room}</td>

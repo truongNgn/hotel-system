@@ -28,7 +28,7 @@ const Sidebar = () => {
     { path: '/shiftManagement', name: 'Ca trực', icon: <FaSitemap /> },
     { path: '/employees', name: 'Quản lý nhân viên', icon: <FaUserFriends /> },
     { path: '/invoices', name: 'Thống kê doanh thu', icon: <FaChartLine /> },
-    { path: '/booking', name: 'Đặt hàng', icon: <FaCartPlus /> },
+    { path: '/orderIngredients', name: 'Đặt hàng', icon: <FaCartPlus /> },
   ];
 
   const isActive = (path) => location.pathname.includes(path);

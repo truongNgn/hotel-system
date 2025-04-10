@@ -58,7 +58,7 @@ const Employees = () => {
           </thead>
           <tbody>
             {dummyEmployees.map((emp, index) => (
-              <tr key={emp.id} className="bg-blue-100 hover:bg-blue-200 transition">
+              <tr key={emp.id} className="bg-white hover:bg-gray-300 transition text-black">
                 <td className="p-3">{index + 1}</td>
                 <td className="p-3">{emp.id}</td>
                 <td className="p-3">{emp.name}</td>
