@@ -1,8 +1,31 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 const RentModal = ({ room, onClose }) => {
+  const [customerName, setCustomerName] = useState("");
+
+  useEffect(() => {
+    const fetchCustomer = async () => {
+      try {
+        const res = await axios.get("/api/orders/customer-room");
+        const data = res.data;
+        const found = data.find(item => item.RoomNumber === room.number);
+        if (found) {
+          setCustomerName(found.customerName); // hoặc found.FullName nếu chưa đổi alias
+        }
+      } catch (err) {
+        console.error("Lỗi khi tải dữ liệu khách thuê:", err);
+      }
+    };
+
+    if (room.status === "Đang sử dụng") {
+      fetchCustomer();
+    }
+  }, [room]);
   return (
     <div className="fixed inset-0 bg-opacity-30 flex justify-center items-center">
       <div className="bg-gray-100 rounded-xl w-[500px] relative overflow-hidden">
-        
+
         {/* Header có màu blue */}
         <div className="bg-blue-600 text-white flex justify-between items-center px-6 py-4">
           <h2 className="font-bold text-xl">Thuê phòng</h2>
@@ -32,7 +55,13 @@ const RentModal = ({ room, onClose }) => {
             </label>
             <label className="col-span-2">
               Tên khách hàng:
-              <input className="w-full border px-2 py-1 rounded text-black font-normal" />
+              <input
+                className="w-full border px-2 py-1 rounded text-black font-normal"
+                value={customerName}
+                disabled={room.status === "Đang sử dụng"}
+                onChange={(e) => setCustomerName(e.target.value)}
+
+              />
             </label>
             <label className="col-span-2">
               Địa chỉ:

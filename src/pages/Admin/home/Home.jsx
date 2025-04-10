@@ -1,16 +1,29 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RoomCard from "../../../components/RoomCard";
 import RentModal from "../../../components/RentModal";
-
-const roomsData = [
-  { id: "P001", name: "Phòng 001", status: "Còn trống" },
-  { id: "P002", name: "Phòng 002", status: "Đang sử dụng" },
-  { id: "P003", name: "Phòng 003", status: "Đang dọn dẹp" },
-  // Các phòng còn lại...
-];
+import axios from "axios";
 
 const Home = () => {
+  const [rooms, setRooms] = useState([]);
   const [selectedRoom, setSelectedRoom] = useState(null);
+
+  useEffect(() => {
+    axios.get("http://localhost:5000/api/rooms")
+      .then((res) => {
+        const mappedRooms = res.data.map(room => ({
+          id: room.RoomID,
+          number: room.RoomNumber,
+          type: room.Type,
+          status: room.Status,
+          price: room.Price,
+          branchId: room.BranchID,
+        }));
+        setRooms(mappedRooms);
+      })
+      .catch((err) => {
+        console.error("Lỗi khi fetch phòng:", err);
+      });
+  }, []);
 
   const openModal = (room) => setSelectedRoom(room);
   const closeModal = () => setSelectedRoom(null);
@@ -32,15 +45,13 @@ const Home = () => {
 
       {/* Danh sách phòng */}
       <div className="grid grid-cols-4 gap-4">
-        {roomsData.map((room) => (
+        {rooms.map((room) => (
           <RoomCard key={room.id} room={room} onClick={() => openModal(room)} />
         ))}
       </div>
 
       {/* Modal thuê phòng */}
-      {selectedRoom && (
-        <RentModal room={selectedRoom} onClose={closeModal} />
-      )}
+      {selectedRoom && <RentModal room={selectedRoom} onClose={closeModal} />}
     </div>
   );
 };
